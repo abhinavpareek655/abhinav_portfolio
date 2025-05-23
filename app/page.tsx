@@ -112,7 +112,7 @@ function Header({ activeSection }: { activeSection: string }) {
           </button>
 
           <a
-            href="/Abhinav_s_Resume (1).pdf"
+            href="/resume.pdf"
             download
             className="hidden md:flex items-center gap-2 bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 text-white px-4 py-2 rounded-full transition-all duration-300 shadow-md hover:shadow-lg"
           >
@@ -171,7 +171,7 @@ function Header({ activeSection }: { activeSection: string }) {
             ))}
             <li>
               <a
-                href="/Abhinav_s_Resume (1).pdf"
+                href="/resume.pdf"
                 download
                 className="flex items-center gap-2 text-violet-600 dark:text-violet-400 py-2"
                 onClick={() => setMobileMenuOpen(false)}
@@ -782,7 +782,7 @@ function ContactSection() {
                   I'm currently available for freelance work and open to new opportunities.
                 </p>
                 <a
-                  href="/Abhinav_s_Resume (1).pdf"
+                  href="/resume.pdf"
                   download
                   className="inline-flex items-center gap-2 bg-white text-violet-600 px-5 py-2.5 rounded-lg font-medium hover:bg-gray-100 transition-colors"
                 >
