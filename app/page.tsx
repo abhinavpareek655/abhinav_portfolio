@@ -298,7 +298,7 @@ function HeroSection() {
               <div className="relative w-full h-full rounded-full p-2 bg-gradient-to-r from-violet-500 to-indigo-500 rotate-3 shadow-xl">
                 <div className="absolute inset-0 rounded-full overflow-hidden border-4 border-white dark:border-gray-800 rotate-0">
                   <Image
-                    src="/placeholder.svg?height=300&width=300"
+                    src="/pfp-enhanced.png"
                     alt="Abhinav Pareek"
                     width={300}
                     height={300}
@@ -699,6 +699,31 @@ function ProjectsSection() {
 }
 
 function ContactSection() {
+  const [name, setName]         = useState("");
+  const [email, setEmail]       = useState("");
+  const [subject, setSubject]   = useState("");
+  const [message, setMessage]   = useState("");
+  const [sending, setSending]   = useState(false);
+ 
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSending(true);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, subject, message }),
+      });
+      if (!res.ok) throw new Error();
+      alert("Message sent!");
+      setName(""); setEmail(""); setSubject(""); setMessage("");
+    } catch {
+      alert("Failed to send. Please try again.");
+    } finally {
+      setSending(false);
+    }
+  };
+
   return (
     <section
       id="contact"
@@ -796,71 +821,78 @@ function ContactSection() {
               <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg p-8 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700">
                 <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-6">Send Me a Message</h3>
 
-                <form className="space-y-6">
+                  <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      <label htmlFor="name" className="block text-sm font-medium mb-2">
                         Name
                       </label>
                       <input
-                        type="text"
                         id="name"
-                        className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-violet-500 dark:focus:ring-violet-400 bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+                        type="text"
+                        value={name}
+                        onChange={e => setName(e.target.value)}
                         placeholder="Your name"
+                        required
+                        className="w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-violet-500 bg-white text-gray-900"
                       />
                     </div>
-
                     <div>
-                      <label
-                        htmlFor="email"
-                        className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-                      >
+                      <label htmlFor="email" className="block text-sm font-medium mb-2">
                         Email
                       </label>
                       <input
-                        type="email"
                         id="email"
-                        className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-violet-500 dark:focus:ring-violet-400 bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+                        type="email"
+                        value={email}
+                        onChange={e => setEmail(e.target.value)}
                         placeholder="Your email"
+                        required
+                        className="w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-violet-500 bg-white text-gray-900"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label
-                      htmlFor="subject"
-                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-                    >
+                    <label htmlFor="subject" className="block text-sm font-medium mb-2">
                       Subject
                     </label>
                     <input
-                      type="text"
                       id="subject"
-                      className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-violet-500 dark:focus:ring-violet-400 bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+                      type="text"
+                      value={subject}
+                      onChange={e => setSubject(e.target.value)}
                       placeholder="Subject"
+                      required
+                      className="w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-violet-500 bg-white text-gray-900"
                     />
                   </div>
 
                   <div>
-                    <label
-                      htmlFor="message"
-                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-                    >
+                    <label htmlFor="message" className="block text-sm font-medium mb-2">
                       Message
                     </label>
                     <textarea
                       id="message"
                       rows={5}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-violet-500 dark:focus:ring-violet-400 bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+                      value={message}
+                      onChange={e => setMessage(e.target.value)}
                       placeholder="Your message"
+                      required
+                      className="w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-violet-500 bg-white text-gray-900"
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 text-white py-3 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl font-medium"
+                    disabled={sending}
+                    className={`w-full py-3 rounded-lg font-medium transition-all duration-300 ${
+                      sending
+                        ? "bg-gray-400 cursor-not-allowed text-white"
+                        : "bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 text-white shadow-lg hover:shadow-xl"
+                    }`}
                   >
-                    Send Message
+                    {sending ? "Sending…" : "Send Message"}
                   </button>
                 </form>
               </div>
