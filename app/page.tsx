@@ -559,8 +559,8 @@ function ProjectsSection() {
         "Blockchain-powered social media app with decentralized authentication and content storage using IPFS for censorship-resistant experience.",
       tags: ["React Native", "Ethereum", "Solidity", "IPFS", "Blockchain"],
       links: [
-        { label: "Frontend", url: "#" },
-        { label: "Backend", url: "#" },
+        { label: "Frontend", url: "https://github.com/abhinavpareek655/blip-expo" },
+        { label: "Backend", url: "https://github.com/abhinavpareek655/blip-backend" },
       ],
       color: "from-violet-500 to-indigo-500",
     },
@@ -570,8 +570,8 @@ function ProjectsSection() {
         "Mobile app to assist users in quitting tobacco with progress tracking, real-time notifications, and location-based preventive alerts.",
       tags: ["React Native", "Node.js", "Express.js", "MongoDB", "Location Services"],
       links: [
-        { label: "Frontend", url: "#" },
-        { label: "Backend", url: "#" },
+        { label: "Frontend", url: "https://github.com/abhinavpareek655/quit-tobacco" },
+        { label: "Backend", url: "https://github.com/abhinavpareek655/quit-tobacco-backend" },
       ],
       color: "from-indigo-500 to-blue-500",
     },
@@ -580,7 +580,7 @@ function ProjectsSection() {
       description:
         "App providing recycling information by analyzing waste photos using AI (CNN/ResNet) and connecting users with recycling vendors.",
       tags: ["React Native", "Node.js", "Express.js", "MongoDB", "CNN", "ResNet"],
-      links: [{ label: "GitHub", url: "#" }],
+      links: [{ label: "GitHub", url: "https://github.com/abhinavpareek655/ecosort" }],
       color: "from-green-500 to-emerald-500",
     },
     {
@@ -588,7 +588,7 @@ function ProjectsSection() {
       description:
         "Website for organizing research equipment booking and assignment schedules for university scholars and faculty.",
       tags: ["React", "Tailwind CSS", "Node.js", "Express.js", "MongoDB"],
-      links: [{ label: "Website", url: "#" }],
+      links: [{ label: "Website", url: "https://equipment-booking-nu.vercel.app/" }],
       color: "from-blue-500 to-cyan-500",
     },
     {
@@ -596,7 +596,7 @@ function ProjectsSection() {
       description:
         "Deep learning model for accurate power demand prediction using historical data collected through web scraping techniques.",
       tags: ["Python", "Deep Learning", "Web Scraping", "Data Preprocessing"],
-      links: [{ label: "GitHub", url: "#" }],
+      links: [{ label: "GitHub", url: "https://github.com/abhinavpareek655/HousingPricePrediction" }],
       color: "from-amber-500 to-orange-500",
     },
     {
@@ -604,7 +604,15 @@ function ProjectsSection() {
       description:
         "Mobile app for college convocation entry verification with secure QR code scanning to validate student ID cards.",
       tags: ["React Native", "Node.js", "Express.js", "MongoDB", "AWS", "Jira"],
-      links: [{ label: "GitHub", url: "#" }],
+      links: [{ label: "GitHub", url: "https://github.com/abhinavpareek655/convo2025" }],
+      color: "from-purple-500 to-violet-500",
+    },
+    {
+      title: "Internet Relay Chat Service– IRC",
+      description:
+        "Allows users to chat with each other (both publicly and in private channels) in real-time within a virtual chatroom environment",
+      tags: ["C language", "Operating System", "Multi threading", "Core Subject"],
+      links: [{ label: "GitHub", url: "https://github.com/abhinavpareek655/IRC" }],
       color: "from-purple-500 to-violet-500",
     },
   ]
