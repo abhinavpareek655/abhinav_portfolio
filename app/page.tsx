@@ -584,11 +584,11 @@ function ProjectsSection() {
       color: "from-green-500 to-emerald-500",
     },
     {
-      title: "CURAJ EBS – Equipment Booking System",
+      title: "DBT Builder – Equipment Booking System",
       description:
         "Website for organizing research equipment booking and assignment schedules for university scholars and faculty.",
       tags: ["React", "Tailwind CSS", "Node.js", "Express.js", "MongoDB"],
-      links: [{ label: "Website", url: "https://equipment-booking-nu.vercel.app/" }],
+      links: [{ label: "Website", url: "https://equipment-booking-phi.vercel.app/" }],
       color: "from-blue-500 to-cyan-500",
     },
     {
