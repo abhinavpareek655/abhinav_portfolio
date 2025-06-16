@@ -633,6 +633,7 @@ function ProjectsSection() {
         { label: "Frontend", url: "https://github.com/abhinavpareek655/blip-expo" },
         { label: "Backend", url: "https://github.com/abhinavpareek655/blip-backend" },
       ],
+      image: "https://picsum.photos/seed/blip/800/600",
       color: "from-violet-500 to-indigo-500",
     },
     {
@@ -644,6 +645,7 @@ function ProjectsSection() {
         { label: "Frontend", url: "https://github.com/abhinavpareek655/quit-tobacco" },
         { label: "Backend", url: "https://github.com/abhinavpareek655/quit-tobacco-backend" },
       ],
+      image: "https://picsum.photos/seed/tobacco/800/600",
       color: "from-indigo-500 to-blue-500",
     },
     {
@@ -652,6 +654,7 @@ function ProjectsSection() {
         "App providing recycling information by analyzing waste photos using AI (CNN/ResNet) and connecting users with recycling vendors.",
       tags: ["React Native", "Node.js", "Express.js", "MongoDB", "CNN", "ResNet"],
       links: [{ label: "GitHub", url: "https://github.com/abhinavpareek655/ecosort" }],
+      image: "https://picsum.photos/seed/recycle/800/600",
       color: "from-green-500 to-emerald-500",
     },
     {
@@ -660,6 +663,7 @@ function ProjectsSection() {
         "Website for organizing research equipment booking and assignment schedules for university scholars and faculty.",
       tags: ["React", "Tailwind CSS", "Node.js", "Express.js", "MongoDB"],
       links: [{ label: "Website", url: "https://equipment-booking-phi.vercel.app/" }],
+      image: "https://picsum.photos/seed/builder/800/600",
       color: "from-blue-500 to-cyan-500",
     },
     {
@@ -668,6 +672,7 @@ function ProjectsSection() {
         "Deep learning model for accurate power demand prediction using historical data collected through web scraping techniques.",
       tags: ["Python", "Deep Learning", "Web Scraping", "Data Preprocessing"],
       links: [{ label: "GitHub", url: "https://github.com/abhinavpareek655/HousingPricePrediction" }],
+      image: "https://picsum.photos/seed/power/800/600",
       color: "from-amber-500 to-orange-500",
     },
     {
@@ -676,6 +681,7 @@ function ProjectsSection() {
         "Mobile app for college convocation entry verification with secure QR code scanning to validate student ID cards.",
       tags: ["React Native", "Node.js", "Express.js", "MongoDB", "AWS", "Jira"],
       links: [{ label: "GitHub", url: "https://github.com/abhinavpareek655/convo2025" }],
+      image: "https://picsum.photos/seed/convo/800/600",
       color: "from-purple-500 to-violet-500",
     },
     {
@@ -684,6 +690,7 @@ function ProjectsSection() {
         "Allows users to chat with each other (both publicly and in private channels) in real-time within a virtual chatroom environment",
       tags: ["C language", "Operating System", "Multi threading", "Core Subject"],
       links: [{ label: "GitHub", url: "https://github.com/abhinavpareek655/IRC" }],
+      image: "https://picsum.photos/seed/irc/800/600",
       color: "from-purple-500 to-violet-500",
     },
   ]
@@ -718,6 +725,14 @@ function ProjectsSection() {
                   background: `linear-gradient(to right, ${project.color.split(" ")[1]}, ${project.color.split(" ")[3]})`,
                 }}
               ></div>
+
+              <Image
+                src={project.image}
+                alt={project.title}
+                width={800}
+                height={600}
+                className="w-full h-48 object-cover"
+              />
 
               <div className="p-8">
                 <div className="flex justify-between items-start mb-4">
