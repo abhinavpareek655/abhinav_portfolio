@@ -130,3 +130,4 @@ section::after {
 .decoration-circle {
   @apply absolute rounded-full bg-gradient-to-r from-violet-500/10 to-indigo-500/10 dark:from-violet-500/5 dark:to-indigo-500/5 blur-3xl;
 }
+

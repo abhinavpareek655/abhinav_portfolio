@@ -467,23 +467,69 @@ function AboutSection() {
 
 function ExperienceSection() {
   return (
-    <section id="experience" className="py-24 relative overflow-hidden">
-      <div className="container mx-auto px-4 relative z-10">
+    <section id="experience" className="py-24 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-950 relative">
+      <div className="container mx-auto px-4 relative z-10 overflow-visible">
         <div className="text-center mb-16">
-          <p className="text-violet-600 dark:text-violet-400 font-medium tracking-wide mb-3">JOURNEY SO FAR</p>
+          <p className="text-violet-600 dark:text-violet-400 font-medium tracking-wide mb-3">
+            JOURNEY SO FAR
+          </p>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
-            My{' '}
+            My{" "}
             <span className="bg-gradient-to-r from-violet-600 to-indigo-600 dark:from-violet-400 dark:to-indigo-400 text-transparent bg-clip-text">
               Experience
             </span>
           </h2>
         </div>
-        <div className="w-full h-[500px]">
-          <Lanyard />
+        <div className="relative flex justify-center overflow-visible">
+          {/* Card */}
+          <div className="relative w-full max-w-2xl h-auto rounded-2xl bg-gray-400/90 dark:bg-gray-800/80 shadow-2xl px-10 py-8 overflow-visible">
+            <div className="flex">
+              <div className="flex-1">
+              <div className="flex justify-between items-start">
+                <div>
+                <h4 className="text-xl font-medium bg-gradient-to-r from-violet-600 to-indigo-600 dark:from-violet-400 dark:to-indigo-400 text-transparent bg-clip-text">
+                  Summer Intern
+                </h4>
+                <p className="text-gray-700 dark:text-gray-300 mt-1">Celebal Technologies</p>
+                </div>
+                <div className="px-3 py-1 rounded-full bg-violet-50 dark:bg-violet-900/30 text-violet-600 dark:text-violet-400 text-sm font-medium">
+                02 Jun 2025 - 03 Aug 2025
+                </div>
+              </div>
+              <p className="text-gray-600 dark:text-gray-400 mt-2">Jaipur, Rajasthan</p>
+              <div className="mt-4 flex items-center">
+                <div className="px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-sm font-medium">
+                  React JS
+                </div>
+              </div>
+              <div className="mt-6 pt-6 border-t border-gray-100 dark:border-gray-700">
+                <h5 className="font-medium text-gray-800 dark:text-gray-200 mb-2">Projects:</h5>
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    "Bike-Car Rental System",
+                    "E-commerce Website",
+                  ].map((course, i) => (
+                    <span
+                      key={i}
+                      className="px-3 py-1 bg-gray-50 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm"
+                    >
+                      {course}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              </div>
+              
+              <div className="w-36 hidden md:block"></div>
+            </div>
+            <div className="absolute -top-20 right-8 z-20 w-32 h-56">
+              <Lanyard />
+            </div>
+          </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 
@@ -643,7 +689,7 @@ function ProjectsSection() {
   ]
 
   return (
-    <section id="projects" className="py-24 relative overflow-hidden">
+    <section id="projects" className="py-24 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-950 relative">
       {/* Decorative elements */}
       <div className="absolute top-1/4 right-0 w-96 h-96 bg-violet-100/50 dark:bg-violet-900/20 rounded-full blur-3xl"></div>
       <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-indigo-100/50 dark:bg-indigo-900/20 rounded-full blur-3xl"></div>
