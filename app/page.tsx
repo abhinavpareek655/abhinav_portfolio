@@ -3,6 +3,8 @@
 import { type MouseEvent, useEffect, useState, useRef } from "react"
 import { Github, Linkedin, Mail, Download, Moon, Sun, ExternalLink, ChevronRight } from "lucide-react"
 import Image from "next/image"
+import dynamic from "next/dynamic";
+import Lanyard from "@/components/Lanyard"
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("hero")
@@ -35,6 +37,7 @@ export default function Home() {
         <HeroSection />
         <AboutSection />
         <SkillsSection />
+        <ExperienceSection />
         <ProjectsSection />
         <ContactSection />
       </main>
@@ -67,7 +70,7 @@ function Header({ activeSection }: { activeSection: string }) {
     document.documentElement.classList.toggle("dark")
   }
 
-  const navItems = ["About", "Skills", "Projects", "Contact"]
+  const navItems = ["About", "Skills", "Experience", "Projects", "Contact"]
 
   return (
     <header
@@ -461,6 +464,28 @@ function AboutSection() {
     </section>
   )
 }
+
+function ExperienceSection() {
+  return (
+    <section id="experience" className="py-24 relative overflow-hidden">
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="text-center mb-16">
+          <p className="text-violet-600 dark:text-violet-400 font-medium tracking-wide mb-3">JOURNEY SO FAR</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+            My{' '}
+            <span className="bg-gradient-to-r from-violet-600 to-indigo-600 dark:from-violet-400 dark:to-indigo-400 text-transparent bg-clip-text">
+              Experience
+            </span>
+          </h2>
+        </div>
+        <div className="w-full h-[500px]">
+          <Lanyard />
+        </div>
+      </div>
+    </section>
+  )
+}
+
 
 function SkillsSection() {
   const skillCategories = [
