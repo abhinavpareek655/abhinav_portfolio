@@ -5,6 +5,8 @@ import { Github, Linkedin, Mail, Download, Moon, Sun, ExternalLink, ChevronRight
 import Image from "next/image"
 import dynamic from "next/dynamic";
 import Lanyard from "@/components/Lanyard"
+import CircularGallery from "@/components/circular-gallery"
+import SpotlightCard from "@/components/spotlight-card"
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("hero")
@@ -522,7 +524,19 @@ function ExperienceSection() {
               
               <div className="w-36 hidden md:block"></div>
             </div>
-            <div className="absolute -top-20 right-8 z-20 w-32 h-56">
+            <div
+              style={{
+              height: '100%',
+              position: 'absolute',
+              width: '100vw',
+              left: '85%',
+              right: '0',
+              marginTop: '-1vh',
+              marginLeft: '-50vw',
+              marginRight: '-50vw',
+              }}
+              className="absolute -top-20 right-16 z-20 w-32 h-full flex items-start"
+            >
               <Lanyard />
             </div>
           </div>
@@ -633,7 +647,16 @@ function ProjectsSection() {
         { label: "Frontend", url: "https://github.com/abhinavpareek655/blip-expo" },
         { label: "Backend", url: "https://github.com/abhinavpareek655/blip-backend" },
       ],
-      image: "https://picsum.photos/seed/blip/800/600",
+      type: "mobile",
+      screenshots: [
+        "/blip/blip1.jpg",
+        "/blip/blip2.jpg",
+        "/blip/blip3.jpg",
+        "/blip/blip4.jpg",
+        "/blip/blip5.jpg",
+        "/blip/blip6.jpg",
+        "/blip/blip7.jpg",
+      ],
       color: "from-violet-500 to-indigo-500",
     },
     {
@@ -645,7 +668,12 @@ function ProjectsSection() {
         { label: "Frontend", url: "https://github.com/abhinavpareek655/quit-tobacco" },
         { label: "Backend", url: "https://github.com/abhinavpareek655/quit-tobacco-backend" },
       ],
-      image: "https://picsum.photos/seed/tobacco/800/600",
+      type: "mobile",
+      screenshots: [
+        "/placeholder.svg?height=600&width=300",
+        "/placeholder.svg?height=600&width=300",
+        "/placeholder.svg?height=600&width=300",
+      ],
       color: "from-indigo-500 to-blue-500",
     },
     {
@@ -654,7 +682,8 @@ function ProjectsSection() {
         "App providing recycling information by analyzing waste photos using AI (CNN/ResNet) and connecting users with recycling vendors.",
       tags: ["React Native", "Node.js", "Express.js", "MongoDB", "CNN", "ResNet"],
       links: [{ label: "GitHub", url: "https://github.com/abhinavpareek655/ecosort" }],
-      image: "https://picsum.photos/seed/recycle/800/600",
+      type: "mobile",
+      screenshots: ["/placeholder.svg?height=600&width=300", "/placeholder.svg?height=600&width=300"],
       color: "from-green-500 to-emerald-500",
     },
     {
@@ -663,7 +692,14 @@ function ProjectsSection() {
         "Website for organizing research equipment booking and assignment schedules for university scholars and faculty.",
       tags: ["React", "Tailwind CSS", "Node.js", "Express.js", "MongoDB"],
       links: [{ label: "Website", url: "https://equipment-booking-phi.vercel.app/" }],
-      image: "https://picsum.photos/seed/builder/800/600",
+      type: "website",
+      screenshots: [
+        "/EBS/EBS1.png",
+        "/EBS/EBS2.png",
+        "/EBS/EBS3.png",
+        "/EBS/EBS4.png",
+        "/EBS/EBS5.png",
+      ],
       color: "from-blue-500 to-cyan-500",
     },
     {
@@ -672,7 +708,8 @@ function ProjectsSection() {
         "Deep learning model for accurate power demand prediction using historical data collected through web scraping techniques.",
       tags: ["Python", "Deep Learning", "Web Scraping", "Data Preprocessing"],
       links: [{ label: "GitHub", url: "https://github.com/abhinavpareek655/HousingPricePrediction" }],
-      image: "https://picsum.photos/seed/power/800/600",
+      type: "website",
+      screenshots: ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
       color: "from-amber-500 to-orange-500",
     },
     {
@@ -681,7 +718,8 @@ function ProjectsSection() {
         "Mobile app for college convocation entry verification with secure QR code scanning to validate student ID cards.",
       tags: ["React Native", "Node.js", "Express.js", "MongoDB", "AWS", "Jira"],
       links: [{ label: "GitHub", url: "https://github.com/abhinavpareek655/convo2025" }],
-      image: "https://picsum.photos/seed/convo/800/600",
+      type: "mobile",
+      screenshots: ["/placeholder.svg?height=600&width=300", "/placeholder.svg?height=600&width=300"],
       color: "from-purple-500 to-violet-500",
     },
     {
@@ -690,13 +728,17 @@ function ProjectsSection() {
         "Allows users to chat with each other (both publicly and in private channels) in real-time within a virtual chatroom environment",
       tags: ["C language", "Operating System", "Multi threading", "Core Subject"],
       links: [{ label: "GitHub", url: "https://github.com/abhinavpareek655/IRC" }],
-      image: "https://picsum.photos/seed/irc/800/600",
+      type: "website",
+      screenshots: ["/placeholder.svg?height=600&width=800"],
       color: "from-purple-500 to-violet-500",
     },
   ]
 
   return (
-    <section id="projects" className="py-24 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-950 relative">
+    <section
+      id="projects"
+      className="py-24 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-950 relative"
+    >
       {/* Decorative elements */}
       <div className="absolute top-1/4 right-0 w-96 h-96 bg-violet-100/50 dark:bg-violet-900/20 rounded-full blur-3xl"></div>
       <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-indigo-100/50 dark:bg-indigo-900/20 rounded-full blur-3xl"></div>
@@ -712,80 +754,90 @@ function ProjectsSection() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700"
-            >
-              {/* Gradient border effect */}
-              <div
-                className="absolute inset-0 rounded-2xl p-0.5 bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"
-                style={{
-                  background: `linear-gradient(to right, ${project.color.split(" ")[1]}, ${project.color.split(" ")[3]})`,
-                }}
-              ></div>
+        <div className="max-w-6xl mx-auto space-y-24 flex flex-col items-center justify-center">
+          {projects.map((project, index) => {
+            const images = project.screenshots.map((img) => ({
+              image: img,
+              text: "", // or project.title if you want to show it
+            }));
 
-              <Image
-                src={project.image}
-                alt={project.title}
-                width={800}
-                height={600}
-                className="w-full h-48 object-cover"
-              />
-
-              <div className="p-8">
-                <div className="flex justify-between items-start mb-4">
-                  <h3
-                    className="text-xl font-semibold text-gray-800 dark:text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r transition-all duration-300"
-                    style={{
-                      backgroundImage: `linear-gradient(to right, ${project.color.split(" ")[1]}, ${project.color.split(" ")[3]})`,
-                    }}
-                  >
-                    {project.title}
-                  </h3>
-
-                  {/* Project number */}
-                  <div className="w-8 h-8 rounded-full flex items-center justify-center bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400 text-sm font-medium">
-                    {index + 1}
+            return (
+              <div key={index} className="space-y-8">
+                <div
+                  style={{
+                  height: '600px',
+                  position: 'relative',
+                  width: '100vw',
+                  left: '50%',
+                  right: '50%',
+                  marginLeft: '-50vw',
+                  marginRight: '-50vw',
+                  }}
+                  className="mb-8"
+                >
+                <CircularGallery items={images} imageHeight={project.type==='mobile' ? 1300 : 600} imageWidth={project.type==='mobile' ? 600 : 1300 } />
+                </div>
+                <SpotlightCard className="w-full max-w-4xl bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg rounded-3xl border border-gray-100 dark:border-gray-700 p-8 md:p-12" spotlightColor="rgba(139, 92, 246, 0.15)">
+                <div className="text-center space-y-8">
+                  <div className="space-y-4">
+                    <div className="flex justify-center items-center gap-4 mb-6">
+                      <h3
+                        className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white bg-gradient-to-r bg-clip-text text-transparent"
+                        style={{
+                          backgroundImage: `linear-gradient(to right, ${project.color.split(" ")[1]}, ${project.color.split(" ")[3]})`,
+                        }}
+                      >
+                        {project.title}
+                      </h3>
+                      <span
+                        className={`px-4 py-2 rounded-full text-sm font-medium ${
+                          project.type === "mobile"
+                            ? "bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400"
+                            : "bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400"
+                        }`}
+                      >
+                        {project.type === "mobile" ? "📱 Mobile App" : "🌐 Website"}
+                      </span>
+                    </div>
+                    <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
+                      {project.description}
+                    </p>
+                  </div>
+                  <div className="space-y-4">
+                    <h4 className="text-xl font-semibold text-gray-800 dark:text-white">Technologies Used</h4>
+                    <div className="flex flex-wrap justify-center gap-3">
+                      {project.tags.map((tag, tagIndex) => (
+                        <span
+                          key={tagIndex}
+                          className="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium hover:bg-violet-50 dark:hover:bg-violet-900/30 hover:text-violet-600 dark:hover:text-violet-400 transition-colors"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="space-y-4">
+                    <h4 className="text-xl font-semibold text-gray-800 dark:text-white">Project Links</h4>
+                    <div className="flex justify-center gap-6">
+                      {project.links.map((link, linkIndex) => (
+                        <a
+                          key={linkIndex}
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-3 px-8 py-3 bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 text-white rounded-full font-medium transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                        >
+                          <ExternalLink size={18} />
+                          <span>{link.label}</span>
+                        </a>
+                      ))}
+                    </div>
                   </div>
                 </div>
-
-                <p className="text-gray-600 dark:text-gray-400 mb-6 line-clamp-3">{project.description}</p>
-
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tags.slice(0, 4).map((tag, tagIndex) => (
-                    <span
-                      key={tagIndex}
-                      className="px-3 py-1 bg-gray-50 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg text-xs font-medium"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                  {project.tags.length > 4 && (
-                    <span className="px-3 py-1 bg-gray-50 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg text-xs font-medium">
-                      +{project.tags.length - 4} more
-                    </span>
-                  )}
-                </div>
-
-                <div className="flex gap-4">
-                  {project.links.map((link, linkIndex) => (
-                    <a
-                      key={linkIndex}
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1.5 text-gray-700 dark:text-gray-300 hover:text-violet-600 dark:hover:text-violet-400 transition-colors text-sm font-medium"
-                    >
-                      <ExternalLink size={14} />
-                      <span>{link.label}</span>
-                    </a>
-                  ))}
-                </div>
+                </SpotlightCard>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
